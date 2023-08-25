@@ -23,39 +23,39 @@ function NavTabs({ currentPage, handlePageChange }) {
     <ul style={styles.card}>
       <li style={styles.heading}>
         <a
-          href="#main"
-          onClick={() => handlePageChange('MainPage')}
+          href="#signIn"
+          onClick={() => handlePageChange('signIn')}
 
+          style={styles.font}
+        > Sign In
+        </a>
+      </li>
+      <li style={styles.heading}>
+        <a
+          href="#home"
+          onClick={() => handlePageChange('Home')}
           style={styles.font}
         > Home
         </a>
       </li>
       <li style={styles.heading}>
         <a
-          href="#resume"
-          onClick={() => handlePageChange('Resume')}
+          href="#bulkFood"
+          onClick={() => handlePageChange('bulkFood')}
+
           style={styles.font}
-        > Resume
+        >
+          Bulking
         </a>
       </li>
       <li style={styles.heading}>
         <a
-          href="#portfolio"
-          onClick={() => handlePageChange('Portfolio')}
+          href="#cutFood"
 
+          onClick={() => handlePageChange('cutFood')}
           style={styles.font}
         >
-          Portfolio
-        </a>
-      </li>
-      <li style={styles.heading}>
-        <a
-          href="#contact"
-
-          onClick={() => handlePageChange('Contact')}
-          style={styles.font}
-        >
-          Contact
+          Cutting
         </a>
       </li>
     </ul>

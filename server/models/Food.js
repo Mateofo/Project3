@@ -31,7 +31,7 @@ const foodSchema = new Schema({
     protein:{
         type: Number,
         required: true
-      }    
+      }  
 })
 
 const Food = mongoose.model('Food', foodSchema);
