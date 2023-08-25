@@ -34,8 +34,8 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addFood: async (_, { _id, name, category, image, calories, fats, carbs, protein }) => {
-      const newFood = await Food.create({ name, category, image, calories, fats, carbs, protein });
+    addFood: async (_, { _id, name, category, image, calories, fats, carbs, protein,isLowCalorie }) => {
+      const newFood = await Food.create({ name, category, image, calories, fats, carbs, protein ,isLowCalorie});
       const updatedBody = await Body.findByIdAndUpdate(_id, { $push: { foods: newFood._id } }, { new: true });
       return newFood;
     },

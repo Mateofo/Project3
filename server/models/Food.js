@@ -17,23 +17,27 @@ const foodSchema = new Schema({
         type: String
       },
     calories:{
-        type: Number,
+        type: String,
         required: true,
       },
     fats:{
-        type: Number,
+        type: String,
         required: true,
       },
     carbs:{
-        type: Number,
+        type: String,
         required: true
       },
     protein:{
-        type: Number,
+        type: String,
         required: true
-      }  
-})
+      } ,
+      isLowCalorie: {
+        type: Boolean,
+        required: true
+    } 
+});
 
 const Food = mongoose.model('Food', foodSchema);
 
-ule.exports = Food;
+module.exports = Food;

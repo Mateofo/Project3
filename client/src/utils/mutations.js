@@ -45,6 +45,7 @@ export const REMOVE_FOOD = gql`
       fats
       carbs
       protein
+      isLowCalorie
     }
   }
 `;
@@ -58,6 +59,7 @@ export const ADD_FOOD = gql`
     $fats: Int!
     $carbs: Int!
     $protein: Int!
+    $isLowCalorie : Boolean!
   ) {
     addFood(
       _id: $_id
@@ -67,6 +69,7 @@ export const ADD_FOOD = gql`
       fats: $fats
       carbs: $carbs
       protein: $protein
+      isLowCalorie:$isLowCalorie
     ) {
       id
       name
@@ -76,6 +79,7 @@ export const ADD_FOOD = gql`
       fats
       carbs
       protein
+      isLowCalorie
     }
   }
 `;

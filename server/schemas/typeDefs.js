@@ -9,7 +9,7 @@ type Body {
   }
 
   type Food {
-    id: ID!
+    _id: ID!
     name: String!
     category: String!
     image:String!
@@ -17,6 +17,7 @@ type Body {
     fats: Int!
     carbs: Int!
     protein: Int!
+    isLowCalorie: Boolean!
   }
 
   type User {

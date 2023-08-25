@@ -30,6 +30,7 @@ export const GET_FOODS = gql`
       fats
       carbs
       protein
+      isLowCalorie
     }
   }
 `;
@@ -45,6 +46,7 @@ export const GET_FOOD_BY_ID = gql`
       fats
       carbs
       protein
+      isLowCalorie
     }
   }
 `;
