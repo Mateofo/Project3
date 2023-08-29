@@ -23,23 +23,48 @@ function NavTabs({ currentPage, handlePageChange }) {
     <ul style={styles.card}>
       <li style={styles.heading}>
         <a
+<<<<<<< HEAD
           href="#main"
           onClick={() => handlePageChange('MainPage')}
 
           style={styles.font}
+=======
+          href="#signIn"
+          onClick={() => handlePageChange('signIn')}
+
+          style={styles.font}
+        > Sign In
+        </a>
+      </li>
+      <li style={styles.heading}>
+        <a
+          href="#home"
+          onClick={() => handlePageChange('Home')}
+          style={styles.font}
+>>>>>>> 67094a5627ea189e2b5ecef550c11be4c496c6a6
         > Home
         </a>
       </li>
       <li style={styles.heading}>
         <a
+<<<<<<< HEAD
           href="#resume"
           onClick={() => handlePageChange('Resume')}
           style={styles.font}
         > Resume
+=======
+          href="#bulkFood"
+          onClick={() => handlePageChange('bulkFood')}
+
+          style={styles.font}
+        >
+          Bulking
+>>>>>>> 67094a5627ea189e2b5ecef550c11be4c496c6a6
         </a>
       </li>
       <li style={styles.heading}>
         <a
+<<<<<<< HEAD
           href="#portfolio"
           onClick={() => handlePageChange('Portfolio')}
 
@@ -56,6 +81,14 @@ function NavTabs({ currentPage, handlePageChange }) {
           style={styles.font}
         >
           Contact
+=======
+          href="#cutFood"
+
+          onClick={() => handlePageChange('cutFood')}
+          style={styles.font}
+        >
+          Cutting
+>>>>>>> 67094a5627ea189e2b5ecef550c11be4c496c6a6
         </a>
       </li>
     </ul>

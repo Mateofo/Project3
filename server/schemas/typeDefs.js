@@ -9,7 +9,11 @@ type Body {
   }
 
   type Food {
+<<<<<<< HEAD
     id: ID!
+=======
+    _id: ID!
+>>>>>>> 67094a5627ea189e2b5ecef550c11be4c496c6a6
     name: String!
     category: String!
     image:String!
@@ -17,6 +21,10 @@ type Body {
     fats: Int!
     carbs: Int!
     protein: Int!
+<<<<<<< HEAD
+=======
+    isLowCalorie: Boolean!
+>>>>>>> 67094a5627ea189e2b5ecef550c11be4c496c6a6
   }
 
   type User {
