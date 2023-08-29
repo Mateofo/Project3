@@ -2,11 +2,20 @@ import { gql } from '@apollo/client';
 
 export const GET_BODYS = gql`
   query GetBodys {
-    bodys {
+  body{
+    _id
+    plan
+  }
+}
+`;
+
+export const GET_SINGLEBODY = gql`
+  query GetSingleBody($bodyId: ID!) {
+    body(_id: $bodyId) {
       _id
-      name
+      plan
       foods {
-        id
+        _id
         name
         category
         image
@@ -19,10 +28,15 @@ export const GET_BODYS = gql`
   }
 `;
 
+
+
+
+
+
 export const GET_FOODS = gql`
   query GetFoods {
     foods {
-      id
+      _id
       name
       category
       image
@@ -38,7 +52,7 @@ export const GET_FOODS = gql`
 export const GET_FOOD_BY_ID = gql`
   query GetFoodById($foodId: ID!) {
     food(_id: $foodId) {
-      id
+      _id
       name
       category
       image

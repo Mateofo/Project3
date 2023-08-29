@@ -1,18 +1,17 @@
-
 const { gql } = require('apollo-server-express');
 
-const typeDefs = gql`{
-type Body {
-    _id: ID
-    name: String
-    foods:[Food]
+const typeDefs = gql`
+  type Body {
+    _id: ID!
+    plan: String!
+    foods: [Food]
   }
 
   type Food {
     _id: ID!
     name: String!
     category: String!
-    image:String!
+    image: String!
     calories: Int!
     fats: Int!
     carbs: Int!
@@ -32,22 +31,20 @@ type Body {
     user: User
   }
 
-
   type Query {
-    bodys:[Body]
-    foods:[Food]
-    food(_id:ID!):Food
-    user:User 
+    bodies: [Body]  # Corrected spelling to 'bodies'
+    foods: [Food]
+    food(_id: ID!): Food
+    user: User
   }
 
-  type Mutation{
+  type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addFood(_id: ID!,name: String!,image:String!,calories: Int!,fats: Int!,carbs: Int!, protein: Int!): Food
+    addFood(bodyId: ID!, name: String!, calories: Int!, fats: Int!, carbs: Int!, protein: Int!): Food
     login(email: String!, password: String!): Auth
-    removeFood(_id: ID!,name: String!,image:String!,calories: Int!,fats: Int!,carbs: Int!, protein: Int!): Food
-    
+    removeFood(_id: ID!, name: String!, image: String!, calories: Int!, fats: Int!, carbs: Int!, protein: Int!): Food
   }
-})`;
+`;
 
 module.exports = typeDefs;
   

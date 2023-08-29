@@ -11,10 +11,10 @@
     "@testing-library/user-event": "^7.2.1",
     "graphql": "^14.6.0",
     "jwt-decode": "^2.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "react-scripts": "5.0.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,10 +23,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -41,3 +38,4 @@
     ]
   }
 }
+

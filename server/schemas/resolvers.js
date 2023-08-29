@@ -34,9 +34,9 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addFood: async (_, { _id, name, category, image, calories, fats, carbs, protein,isLowCalorie }) => {
-      const newFood = await Food.create({ name, category, image, calories, fats, carbs, protein ,isLowCalorie});
-      const updatedBody = await Body.findByIdAndUpdate(_id, { $push: { foods: newFood._id } }, { new: true });
+    addFood: async (_, { bodyId, name, category, calories, fats, carbs, protein,isLowCalorie }) => {
+      const newFood = await Food.create({ name, category, calories, fats, carbs, protein ,isLowCalorie});
+      const updatedBody = await Body.findByIdAndUpdate(bodyId, { $push: { foods: newFood._id } }, { new: true });
       return newFood;
     },
     login: async (parent, { email, password }) => {
@@ -64,10 +64,10 @@ const resolvers = {
       return removedFood;
     },
   },
+  
   Body: {
-    foods: (parent, args, context) => {
-      // Ensure you have the correct way of accessing Food model in context
-      return context.models.Food.find({ body: parent.id });
+    foods: async (parent) => {
+      return await Food.find({ _id: { $in: parent.foods } });
     },
   },
 };

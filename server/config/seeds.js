@@ -2,14 +2,7 @@ const db = require('./connection');
 const { Body, Food, User} = require('../models');
 
 db.once('open', async () => {
-    await Body.deleteMany();
 
-    const BodyDocs = await Body.insertMany([
-        { plan: 'Cutting', foods: [], isLowCalorie: true },
-        { plan: 'Bulking', foods: [], isLowCalorie: false },
-    ]);   
-
-console.log(' body seeded');
 
 await Food.deleteMany();
 
@@ -418,6 +411,28 @@ const FoodDocs = await Food.insertMany([
         isLowCalorie: false,
     },
 ]);
+
+await Body.deleteMany();
+
+// Insert body plans
+const bodyDocs = await Body.insertMany([
+    { plan: 'Cutting', foods: [], isLowCalorie: true },
+    { plan: 'Bulking', foods: [], isLowCalorie: false },
+]);
+
+console.log('Body plans seeded');
+
+// Fetch all foods
+const allFoods = await Food.find();
+
+// Assign foods to body plans
+for (const food of allFoods) {
+    if (food.isLowCalorie) {
+        await Body.updateOne({ plan: 'Cutting' }, { $push: { foods: food._id } });
+    } else {
+        await Body.updateOne({ plan: 'Bulking' }, { $push: { foods: food._id } });
+    }
+}
 console.log("foods seeded");
 
 await User.deleteMany();
@@ -429,12 +444,7 @@ await User.create({
     password: "13145qqq"
 });
 
-// await User.create({
-//     firstName: "",
-//     lastName: "",
-//     email: "",
-//     password:
-// });
+
 
 
 console.log("user seeded")

@@ -33,45 +33,40 @@ export const ADD_USER = gql`
   }
 `;
 
-
-export const REMOVE_FOOD = gql`
-  mutation RemoveFood($_id: ID!) {
-    removeFood(_id: $_id) {
-      id
-      name
-      category
-      image
-      calories
-      fats
-      carbs
-      protein
-      isLowCalorie
-    }
+export const REMOVE_FOOD =gql`
+mutation RemoveFood($_id: ID!) {
+  removeFood(_id: $_id) {
+    _id
+    name
+    category
+    image
+    calories
+    fats
+    carbs
+    protein
+    isLowCalorie
   }
-`;
+}`
+
 
 export const ADD_FOOD = gql`
   mutation AddFood(
-    $_id: ID!
+    $bodyId: ID!
     $name: String!
-    $image: String!
     $calories: Int!
     $fats: Int!
     $carbs: Int!
     $protein: Int!
-    $isLowCalorie : Boolean!
   ) {
     addFood(
-      _id: $_id
+      bodyId: $bodyId
       name: $name
-      image: $image
       calories: $calories
       fats: $fats
       carbs: $carbs
       protein: $protein
-      isLowCalorie:$isLowCalorie
     ) {
-      id
+      _id
       name
       category
       image
