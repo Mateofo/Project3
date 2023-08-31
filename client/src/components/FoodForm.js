@@ -89,7 +89,7 @@ const FoodForm =({bodyId}) => {
 
     return (
         <div>
-          <p>{bodyId}</p>
+          
           <h4>Add your own customized food to the plan</h4>
           <form
           className="flex-row justify-center justify-space-between-md align-center"
