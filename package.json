@@ -15,5 +15,9 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "node": "^16.18.1",
+    "web-vitals": "^3.4.0"
   }
 }

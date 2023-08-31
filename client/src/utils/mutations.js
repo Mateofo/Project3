@@ -33,21 +33,6 @@ export const ADD_USER = gql`
   }
 `;
 
-export const REMOVE_FOOD =gql`
-mutation RemoveFood($_id: ID!) {
-  removeFood(_id: $_id) {
-    _id
-    name
-    category
-    image
-    calories
-    fats
-    carbs
-    protein
-    isLowCalorie
-  }
-}`
-
 
 export const ADD_FOOD = gql`
   mutation AddFood(

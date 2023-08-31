@@ -4,7 +4,7 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    bodys: async () => {
+    body: async () => {
       return await Body.find().populate("foods");
     },
     foods: async () => {
@@ -15,10 +15,10 @@ const resolvers = {
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
-          populate: 'category'
-        });
+         const user = await User.findById(context.user._id)//.populate({
+        //   path: 'orders.products',
+        //   populate: 'category'
+        // })://
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -56,13 +56,13 @@ const resolvers = {
 
       return { token, user };
     },
-    removeFood: async (_, { _id }) => {
-      const removedFood = await Food.findByIdAndRemove(_id);
-      if (!removedFood) {
-        throw new Error('Food not found');
-      }
-      return removedFood;
-    },
+    // removeFood: async (_, { _id }) => {
+    //   const removedFood = await Food.findByIdAndRemove(_id);
+    //   if (!removedFood) {
+    //     throw new Error('Food not found');
+    //   }
+    //   return removedFood;
+    // },
   },
   
   Body: {
