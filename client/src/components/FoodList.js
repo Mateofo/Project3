@@ -15,8 +15,8 @@ const FoodList = ({ foods = [] }) => {
           foods.map((food) => (
             <div key={food._id} className="col-12 mb-3 pb-3">
               <div className="p-3 bg-dark text-light">
-                <div className="card-body">
-                  <img alt={food.name} src={`/images/${food.image}`} />
+                <div className="card-body px-1 py-1">
+                  <img alt={food.name} src={`/images/${food.image}`}  width="300" height="200"/>
                   <p>Food: {food.name}</p>
                   <p>Category: {food.category}</p>
                   <p>Calories: {food.calories}</p>

@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-//const Body = require('./Body')
+const Body = require('./Body')
+
 const userSchema = new Schema({
     firstName: {
       type: String,
@@ -24,7 +25,10 @@ const userSchema = new Schema({
       required: true,
       minlength: 5
     },
-    //body:[Body.Schema]
+    bodys: [{
+      type: Schema.Types.ObjectId, // Use ObjectId type
+      ref: 'Body' // Reference the 'Body' model
+    }]
 })
 
 userSchema.pre('save', async function(next) {

@@ -9,8 +9,7 @@ const FoodForm =({bodyId}) => {
   const [fatText, setFatText] = useState('');
   const [carbText, setCarbText] = useState('');
   const [proteinText, setProteinText] = useState('');
-  const [bodyIdText, setBodyIdtext] = useState('')
-
+  const [categoryText,setCategoryText] =useState('');
     const [AddFood] = useMutation(ADD_FOOD);
 
     const handleFormSubmit = async (event) => {
@@ -18,7 +17,7 @@ const FoodForm =({bodyId}) => {
     
         try {
           const { data } = await AddFood({
-            variables: { bodyId,nameText,calorieText,fatText,carbText,proteinText  },
+            variables: { bodyId,categoryText,nameText,calorieText,fatText,carbText,proteinText },
           });
     
           setNameText('');
@@ -26,7 +25,8 @@ const FoodForm =({bodyId}) => {
           setFatText('')
           setCarbText('')
           setProteinText('')
-          setBodyIdtext('')
+          setCategoryText('')
+         
 
         } catch (err) {
           console.error(err);
@@ -42,14 +42,15 @@ const FoodForm =({bodyId}) => {
           setNameText(value);  
         }
       };
-
-      const handleBodyIdChange = (event) => {
+      const handleCategoryChange = (event) => {
         const { name, value } = event.target;
     
-        if (name === 'bodyId') {
-          setBodyIdtext(value);  
+        if (name === 'foodCategory') {
+          setCategoryText(value);  
         }
       };
+
+
 
       const handleCalorieChange = (event) => {
         const { name, value } = event.target;
@@ -88,6 +89,7 @@ const FoodForm =({bodyId}) => {
 
     return (
         <div>
+          <p>{bodyId}</p>
           <h4>Add your own customized food to the plan</h4>
           <form
           className="flex-row justify-center justify-space-between-md align-center"
@@ -104,16 +106,16 @@ const FoodForm =({bodyId}) => {
           ></textarea>
         </div>
 
-        <div className="col-12 col-lg-9">
+        { <div className="col-12 col-lg-9">
           <textarea
-            name="bodyId"
-            placeholder="Add which plan do you want to add the food in"
-            value={bodyIdText}
+            name="foodCategory"
+            placeholder="Add your food's Category..."
+            value={categoryText}
             className="form-input w-100"
             style={{ lineHeight: '1.5' }}
-            onChange={handleBodyIdChange}
+            onChange={handleCategoryChange}
           ></textarea>
-        </div>
+        </div> }
 
         <div className="col-12 col-lg-9">
           <textarea

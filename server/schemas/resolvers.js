@@ -7,10 +7,14 @@ const resolvers = {
     bodys: async () => {
       return await Body.find().populate("foods");
     },
-    body: async (parent, { bodyId }) => {
-      
-      return await Body.findOne({ id: bodyId }).populate("foods");
-    },
+ body: async (parent, { bodyId }) => {
+  try {
+    const foundBody = await Body.findOne({ _id: bodyId }).populate("foods");
+    return foundBody;
+  } catch (error) {
+    throw new Error(`Error fetching body: ${error.message}`);
+  }
+},
     foods: async () => {
       return await Food.find();
     },
@@ -19,10 +23,10 @@ const resolvers = {
     },
     user: async (parent, args, context) => {
       if (context.user) {
-         const user = await User.findById(context.user._id)//.populate({
-        //   path: 'orders.products',
-        //   populate: 'category'
-        // });
+         const user = await User.findById(context.user._id).populate({
+           path: 'bodys',
+           populate: 'foods'
+         });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 

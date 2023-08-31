@@ -20,7 +20,7 @@ const bodyList = ({ bodys, title }) => {
                             className="btn btn-primary btn-block btn-squared"
                             to={`/bodies/${body._id}`}
                         >
-                            Join the discussion on this Body Plan.
+                            Join the discussion on {body.plan}.
                         </Link>
                     </div>
                 ))}

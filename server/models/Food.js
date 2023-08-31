@@ -34,7 +34,7 @@ const foodSchema = new Schema({
       } ,
       isLowCalorie: {
         type: Boolean,
-        required: true
+        //required: true
     } 
 });
 

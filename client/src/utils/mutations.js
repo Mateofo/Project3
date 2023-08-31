@@ -43,31 +43,15 @@ mutation RemoveFood($_id: ID!) {
 
 
 export const ADD_FOOD = gql`
-  mutation AddFood(
-    $bodyId: ID!
-    $name: String!
-    $calories: Int!
-    $fats: Int!
-    $carbs: Int!
-    $protein: Int!
-  ) {
-    addFood(
-      bodyId: $bodyId
-      name: $name
-      calories: $calories
-      fats: $fats
-      carbs: $carbs
-      protein: $protein
-    ) {
-      _id
-      name
-      category
-      image
-      calories
-      fats
-      carbs
-      protein
-      isLowCalorie
-    }
+mutation Mutation($bodyId: ID!, $name: String!, $category: String!, $calories: String!, $fats: String!, $carbs: String!, $protein: String!) {
+  addFood(bodyId: $bodyId, name: $name, category: $category, calories: $calories, fats: $fats, carbs: $carbs, protein: $protein) {
+    _id
+    name
+    category
+    calories
+    fats
+    carbs
+    protein
   }
+}
 `;

@@ -230,7 +230,7 @@ const FoodDocs = await Food.insertMany([
         isLowCalorie: false,
     },
     {
-        name: "Philly Cheese",
+        name: "Philly Cheese Steak",
         category: "American",
         image: "Philly Cheese.jpg",
         calories: "440cal",
@@ -240,7 +240,7 @@ const FoodDocs = await Food.insertMany([
         isLowCalorie: true,
     },
     {
-        name: "Philly Cheese",
+        name: "Philly Cheese Steak",
         category: "American",
         image: "Philly Cheese.jpg",
         calories: "732cal",

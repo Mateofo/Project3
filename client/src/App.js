@@ -10,7 +10,7 @@ import Singlebody from './pages/Singlebody'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Signup from './pages/Signup'
-
+import Nav from './components/Nav'
 
 const httpLink = createHttpLink({
     uri: '/graphql',
@@ -37,6 +37,7 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
+          <Nav />
           <div className="container">
             <Routes>
               <Route 
