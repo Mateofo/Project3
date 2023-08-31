@@ -9,6 +9,7 @@ const FoodForm =({bodyId}) => {
   const [fatText, setFatText] = useState('');
   const [carbText, setCarbText] = useState('');
   const [proteinText, setProteinText] = useState('');
+  const [bodyIdText, setBodyIdtext] = useState('')
 
     const [AddFood] = useMutation(ADD_FOOD);
 
@@ -25,6 +26,7 @@ const FoodForm =({bodyId}) => {
           setFatText('')
           setCarbText('')
           setProteinText('')
+          setBodyIdtext('')
 
         } catch (err) {
           console.error(err);
@@ -38,6 +40,14 @@ const FoodForm =({bodyId}) => {
     
         if (name === 'foodName') {
           setNameText(value);  
+        }
+      };
+
+      const handleBodyIdChange = (event) => {
+        const { name, value } = event.target;
+    
+        if (name === 'bodyId') {
+          setBodyIdtext(value);  
         }
       };
 
@@ -91,6 +101,17 @@ const FoodForm =({bodyId}) => {
             className="form-input w-100"
             style={{ lineHeight: '1.5' }}
             onChange={handleNameChange}
+          ></textarea>
+        </div>
+
+        <div className="col-12 col-lg-9">
+          <textarea
+            name="bodyId"
+            placeholder="Add which plan do you want to add the food in"
+            value={bodyIdText}
+            className="form-input w-100"
+            style={{ lineHeight: '1.5' }}
+            onChange={handleBodyIdChange}
           ></textarea>
         </div>
 

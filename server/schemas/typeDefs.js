@@ -12,10 +12,10 @@ const typeDefs = gql`
     name: String!
     category: String!
     image: String!
-    calories: Int!
-    fats: Int!
-    carbs: Int!
-    protein: Int!
+    calories: String!
+    fats: String!
+    carbs: String!
+    protein: String!
     isLowCalorie: Boolean!
   }
 
@@ -32,7 +32,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    bodies: [Body]  # Corrected spelling to 'bodies'
+    bodys: [Body]  
+    body(bodyId: ID!): Body
     foods: [Food]
     food(_id: ID!): Food
     user: User

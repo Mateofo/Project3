@@ -7,6 +7,10 @@ const resolvers = {
     bodys: async () => {
       return await Body.find().populate("foods");
     },
+    body: async (parent, { bodyId }) => {
+      
+      return await Body.findOne({ id: bodyId }).populate("foods");
+    },
     foods: async () => {
       return await Food.find();
     },
@@ -15,10 +19,10 @@ const resolvers = {
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
-          populate: 'category'
-        });
+         const user = await User.findById(context.user._id)//.populate({
+        //   path: 'orders.products',
+        //   populate: 'category'
+        // });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -34,8 +38,8 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addFood: async (_, { bodyId, name, category, calories, fats, carbs, protein,isLowCalorie }) => {
-      const newFood = await Food.create({ name, category, calories, fats, carbs, protein ,isLowCalorie});
+    addFood: async (_, { bodyId, name, category, calories, fats, carbs, protein }) => {
+      const newFood = await Food.create({ name, category, calories, fats, carbs, protein });
       const updatedBody = await Body.findByIdAndUpdate(bodyId, { $push: { foods: newFood._id } }, { new: true });
       return newFood;
     },
@@ -65,11 +69,11 @@ const resolvers = {
     },
   },
   
-  Body: {
-    foods: async (parent) => {
-      return await Food.find({ _id: { $in: parent.foods } });
-    },
-  },
+  // Body: {
+  //   foods: async (parent) => {
+  //     return await Food.find({ _id: { $in: parent.foods } });
+  //   },
+  // },
 };
 
 module.exports = resolvers;

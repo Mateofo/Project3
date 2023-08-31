@@ -10,7 +10,7 @@ import FoodList from '../components/FoodList'
 
 import { GET_SINGLEBODY } from '../utils/queries';
 
-const Singlebody =()=>{
+const SingleBody =()=>{
   const {bodyId} = useParams();
 
   const { loading, data } = useQuery(GET_SINGLEBODY, {
@@ -36,4 +36,4 @@ const Singlebody =()=>{
   )
 }
 
-export default Singlebody;
+export default SingleBody;

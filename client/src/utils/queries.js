@@ -1,17 +1,28 @@
 import { gql } from '@apollo/client';
 
 export const GET_BODYS = gql`
-  query GetBodys {
-  body{
+  query  {
+  bodys {
     _id
     plan
+    foods {
+      _id
+      name
+      category
+      image
+      calories
+      fats
+      carbs
+      protein
+      isLowCalorie
+    }
   }
 }
 `;
 
 export const GET_SINGLEBODY = gql`
   query GetSingleBody($bodyId: ID!) {
-    body(_id: $bodyId) {
+    body(bodyId: $bodyId) {
       _id
       plan
       foods {
@@ -34,19 +45,19 @@ export const GET_SINGLEBODY = gql`
 
 
 export const GET_FOODS = gql`
-  query GetFoods {
-    foods {
-      _id
-      name
-      category
-      image
-      calories
-      fats
-      carbs
-      protein
-      isLowCalorie
-    }
+query  {
+  foods {
+    _id
+    name
+    category
+    image
+    calories
+    fats
+    carbs
+    protein
+    isLowCalorie
   }
+}
 `;
 
 export const GET_FOOD_BY_ID = gql`
