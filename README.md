@@ -38,4 +38,5 @@ The point of the project is to create an app that displays food options for peop
 
 # Contact 
 * Github Name: d
+* Jzero's Github: https://github.com/jzerobby
 
