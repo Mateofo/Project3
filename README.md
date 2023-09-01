@@ -34,6 +34,6 @@ The point of the project is to create an app that displays food options for peop
 [LiveWebsite](https://bigmacros-09b538522a8c.herokuapp.com/)
 
 # Contact 
-* Github Name: d
+* Github Name: 
 * Jzero's Github: https://github.com/jzerobby
-
+* Diego's Github: https://github.com/rdiego56 
