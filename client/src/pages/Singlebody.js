@@ -23,22 +23,21 @@ const SingleBody = () => {
   }
 
   return (
-    <div>
-      {Auth.loggedIn() ? (
-        <div>
-          <div className="my-5">
-            <FoodList foods={body.foods} />
-            
+      <div className="body">
+        {Auth.loggedIn() ? (
+          <div className="wrapper">
+            <div className="my-5">
+              <FoodList foods={body.foods} />
+            </div>
+            <div className="m-3 p-4 card card-has-bg">
+              <FoodForm bodyId={body._id} />
+            </div>
           </div>
-          <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-            <FoodForm bodyId={body._id} />
-          </div>
-        </div>
-      ) : (
-        <span>(log in to check out)</span>
-      )}
-    </div>
-  );
+        ) : (
+          <span>(log in to check out)</span>
+        )}
+      </div>
+    );
 };
 
 export default SingleBody;
