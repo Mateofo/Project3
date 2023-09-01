@@ -15,7 +15,7 @@ const MainPage = () => {
           ) : (
              <BodyList
                bodys={bodys}
-               title="Some Feed for Body(s)..."
+               title="Some seed for Body(s)..."
              />
             
           )}

@@ -46,12 +46,15 @@ export const ADD_FOOD = gql`
 mutation Mutation($bodyId: ID!, $name: String!, $category: String!, $calories: String!, $fats: String!, $carbs: String!, $protein: String!) {
   addFood(bodyId: $bodyId, name: $name, category: $category, calories: $calories, fats: $fats, carbs: $carbs, protein: $protein) {
     _id
+    plan
+    foods {
     name
     category
     calories
     fats
     carbs
     protein
+      }
   }
 }
 `;

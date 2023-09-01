@@ -42,10 +42,17 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addFood: async (_, { bodyId, name, category, calories, fats, carbs, protein }) => {
-      const newFood = await Food.create({ name, category, calories, fats, carbs, protein });
-      const updatedBody = await Body.findByIdAndUpdate(bodyId, { $push: { foods: newFood._id } }, { new: true });
-      return newFood;
+    addFood: async (parent, { bodyId, name, category, calories, fats, carbs, protein }) => {
+      return Body.findOneAndUpdate(
+        { _id: bodyId },
+        {
+          $addToSet: { foods: {name,category,calories,fats,carbs,protein } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

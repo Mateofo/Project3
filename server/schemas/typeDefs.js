@@ -42,7 +42,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addFood(bodyId: ID!, name: String!,category: String!, calories: String!, fats: String!, carbs: String!, protein: String!): Food
+    addFood(bodyId: ID!, name: String!,category: String!, calories: String!, fats: String!, carbs: String!, protein: String!): Body
     login(email: String!, password: String!): Auth
     removeFood(_id: ID!, name: String!, image: String!, calories: Int!, fats: Int!, carbs: Int!, protein: Int!): Food
   }
